@@ -207,7 +207,7 @@ export default function HomeScreen() {
     <div style={styles.root}>
       {/* Top toolbar: Title + Buttons + Status */}
       <div style={styles.toolbar}>
-        <h1 style={styles.title as any}>Python Runner</h1>
+        <h1 style={styles.title as any}>Python Front</h1>
 
         <Stack
           direction={narrow ? "column" : "row"}
