@@ -17,7 +17,6 @@ beforeEach(() => { useAuth.mockReset(); mockNavigate.mockReset(); });
 test('Shows Unsigned in:  Sign In/Up Button', () => {
   useAuth.mockReturnValue({ user: null, signOut: jest.fn() });
   const Comp = require('../components/SettingsBar').default;
-
   render(<Comp />);
 });
 

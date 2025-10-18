@@ -1,8 +1,3 @@
-// Settings bar: match SignIn/SignUp layout (centered column, maxWidth=480).
-// - Bar spans full width with gray background.
-// - Inner content is centered and width-limited to 480px (same as forms).
-// - Status + buttons are grouped without stretching to edges.
-
 import React from "react";
 import { View, Text, TouchableOpacity, useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

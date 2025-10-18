@@ -204,8 +204,16 @@ export default function HomeScreen() {
     <div style={styles.root}>
       {/* Top toolbar: Title + Buttons + Status */}
       <div style={styles.toolbar}>
-        <h1 style={styles.title as any}>Python Front</h1>
-
+        <h1 style={styles.title as any}>
+          <a
+            href="https://github.com/europanite/python_front/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            Python Front
+          </a>
+        </h1>
         <Stack
           direction={narrow ? "column" : "row"}
           spacing={1}
