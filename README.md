@@ -1,4 +1,4 @@
-# [Python Fit](https://github.com/europanite/python_fit "Python Fit")
+# [Python Front](https://github.com/europanite/python_front "Python Front")
 
 !["web_ui"](./assets/images/web_ui.png)
 
