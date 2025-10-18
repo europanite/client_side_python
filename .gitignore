@@ -55,4 +55,4 @@ frontend/app/coverage/
 frontend/app/.jest-cache/
 
 make_md.py
-python_fit_*
+python_front_*
