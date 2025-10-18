@@ -1,25 +1,17 @@
 name: Frontend Unit Tests
-
 on:
   push:
-    branches: [ main, master ]
   pull_request:
-    branches: [ main, master ]
-
 jobs:
   test:
     name: Run Jest (React Native / Expo)
     runs-on: ubuntu-latest
-
     env:
       CI: "1"
-      # babel.config.js で transform-inline-environment-variables を使うためダミー値を設定
       EXPO_PUBLIC_API_BASE: http://localhost:8000
       EXPO_TUNNEL: "false"
       EXPO_DEVTOOLS_LISTEN_ADDRESS: 0.0.0.0
-      # Metro がホスト名解決を要求するケースがあるため
       REACT_NATIVE_PACKAGER_HOSTNAME: 127.0.0.1
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,16 +23,13 @@ jobs:
           cache: npm
           cache-dependency-path: |
             frontend/app/package-lock.json
-
       - name: Install dependencies
         working-directory: frontend/app
         run: npm ci
-
       - name: Run unit tests (Jest)
         working-directory: frontend/app
         run: |
           npm test -- --ci --runInBand --verbose --coverage
-
       - name: Upload coverage
         if: always()
         uses: actions/upload-artifact@v4
