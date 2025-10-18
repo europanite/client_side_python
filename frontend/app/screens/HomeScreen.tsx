@@ -23,9 +23,6 @@ type ExecResult =
   | { isError: true; text: string };
 
 const DEFAULT_SAMPLE = `# Sample: 
-# print test
-print("Hello World")
-
 # print number
 a = 1
 b = 2
