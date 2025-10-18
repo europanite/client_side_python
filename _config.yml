@@ -1,0 +1,10 @@
+title: "standard_react_fastapi_environment"
+description: "a full-stack development environment"
+baseurl: "/standard_react_fastapi_environment"
+url: "https://europanite.github.io"
+theme: minima
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+highlighter: rouge

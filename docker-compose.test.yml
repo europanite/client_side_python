@@ -1,0 +1,21 @@
+services:
+  frontend_test:
+    container_name: frontend_test
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.test
+    working_dir: /app
+    environment:
+      CI: "1"
+      EXPO_TUNNEL: ${EXPO_TUNNEL}
+      EXPO_DEVTOOLS_LISTEN_ADDRESS: ${EXPO_DEVTOOLS_LISTEN_ADDRESS}
+      REACT_NATIVE_PACKAGER_HOSTNAME: ${REACT_NATIVE_PACKAGER_HOSTNAME}
+      EXPO_PUBLIC_API_HOST: ${EXPO_PUBLIC_API_HOST}
+      EXPO_PUBLIC_API_PORT: ${EXPO_PUBLIC_API_PORT}
+      EXPO_PUBLIC_API_BASE: ${EXPO_PUBLIC_API_BASE}
+    volumes:
+      - ./frontend/app:/app
+      - /app/node_modules
+      - ./reports/frontend:/reports/frontend
+    command: >-
+      sh -lc "npm ci && npm test -- --ci --runInBand --verbose"
