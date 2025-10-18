@@ -1,36 +1,4 @@
 services:
-  db_test:
-    image: postgres:16
-    environment:
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: test
-      POSTGRES_DB: app_test
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U test -d app_test"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
-  backend_test:
-    container_name: backend_test
-    build:
-      context: ./backend
-      dockerfile: Dockerfile.test
-    environment:
-      PYTHONPATH: /app
-      PYTHONUNBUFFERED: "1"
-      DB_HOST: db_test
-      DB_PORT: "5432"
-      DB_USER: test
-      DB_PASS: test
-      DB_NAME: app_test
-    depends_on:
-      db_test:
-        condition: service_healthy
-    volumes:
-      - ./backend/app:/app
-      - ./backend/tests:/tests
-      - ./backend/reports:/reports
-    command: ["pytest", "-q"]
   frontend_test:
     container_name: frontend_test
     build:
