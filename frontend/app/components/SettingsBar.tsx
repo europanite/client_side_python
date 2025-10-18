@@ -49,20 +49,6 @@ export default function SettingsBar() {
                 flexWrap: "wrap",
               }}
             >
-              <Text style={{ fontWeight: "700", color: "#ffffffff"  }}>
-                {user ? `${user.email}` : "Not signed in"}
-              </Text>
-
-              <View style={{ flexDirection: "row", gap: 8 }}>
-                {!user ? (
-                  <>
-                    <Btn title="Sign Up" onPress={() => nav.navigate("SignUp")} />
-                    <Btn title="Sign In" onPress={() => nav.navigate("SignIn")} />
-                  </>
-                ) : (
-                  <Btn title="Sign out" onPress={signOut} />
-                )}
-              </View>
             </View>
           </View>
         </View>
