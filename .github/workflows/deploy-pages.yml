@@ -1,6 +1,7 @@
 name: Deploy Expo Web to GitHub Pages
 on:
   push:
+    branches: [ "main" ]
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,6 +12,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,6 +36,7 @@ jobs:
         with:
           path: frontend/app/dist
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
