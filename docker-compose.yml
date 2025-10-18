@@ -1,0 +1,30 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - ./frontend/app:/app
+      - /app/node_modules
+    environment:
+      EXPO_TUNNEL: ${EXPO_TUNNEL}
+      EXPO_DEVTOOLS_LISTEN_ADDRESS: ${EXPO_DEVTOOLS_LISTEN_ADDRESS}
+      REACT_NATIVE_PACKAGER_HOSTNAME: ${REACT_NATIVE_PACKAGER_HOSTNAME}
+      EXPO_PUBLIC_API_HOST: ${EXPO_PUBLIC_API_HOST}
+      EXPO_PUBLIC_API_PORT: ${EXPO_PUBLIC_API_PORT}
+      EXPO_PUBLIC_API_BASE: ${EXPO_PUBLIC_API_BASE}
+    ports:
+      - "19000:19000"  # Expo dev server (Metro)
+      - "19001:19001"  # React Native debugger(old)
+      - "19002:19002"  # Expo web UI
+      - "8081:8081"    # Metro bundler
+    command: >
+      sh -c "
+        npm install &&
+        npx expo start
+      "

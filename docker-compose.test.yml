@@ -1,0 +1,53 @@
+services:
+  db_test:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: app_test
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test -d app_test"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  backend_test:
+    container_name: backend_test
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.test
+    environment:
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: "1"
+      DB_HOST: db_test
+      DB_PORT: "5432"
+      DB_USER: test
+      DB_PASS: test
+      DB_NAME: app_test
+    depends_on:
+      db_test:
+        condition: service_healthy
+    volumes:
+      - ./backend/app:/app
+      - ./backend/tests:/tests
+      - ./backend/reports:/reports
+    command: ["pytest", "-q"]
+  frontend_test:
+    container_name: frontend_test
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.test
+    working_dir: /app
+    environment:
+      CI: "1"
+      EXPO_TUNNEL: ${EXPO_TUNNEL}
+      EXPO_DEVTOOLS_LISTEN_ADDRESS: ${EXPO_DEVTOOLS_LISTEN_ADDRESS}
+      REACT_NATIVE_PACKAGER_HOSTNAME: ${REACT_NATIVE_PACKAGER_HOSTNAME}
+      EXPO_PUBLIC_API_HOST: ${EXPO_PUBLIC_API_HOST}
+      EXPO_PUBLIC_API_PORT: ${EXPO_PUBLIC_API_PORT}
+      EXPO_PUBLIC_API_BASE: ${EXPO_PUBLIC_API_BASE}
+    volumes:
+      - ./frontend/app:/app
+      - /app/node_modules
+      - ./reports/frontend:/reports/frontend
+    command: >-
+      sh -lc "npm ci && npm test -- --ci --runInBand --verbose"

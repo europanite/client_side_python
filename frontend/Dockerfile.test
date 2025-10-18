@@ -1,0 +1,8 @@
+FROM node:20-bullseye
+
+WORKDIR /app
+
+COPY app/package*.json ./
+RUN npm ci --include=dev
+
+CMD ["npm","test","--","--ci","--runInBand","--verbose"]
