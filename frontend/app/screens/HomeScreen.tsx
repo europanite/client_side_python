@@ -22,14 +22,15 @@ type ExecResult =
   | { isError?: false; text: string }
   | { isError: true; text: string };
 
-const DEFAULT_SAMPLE = `# Sample: print Fibonacci sequence
-def fib(n):
-    a, b = 0, 1
-    for _ in range(n):
-        print(a)
-        a, b = b, a + b
+const DEFAULT_SAMPLE = `# Sample: 
+# print test
+print("Hello World")
 
-fib(10)
+# print number
+a = 1
+b = 2
+c = a + b
+print(c)
 `;
 
 export default function HomeScreen() {
