@@ -1,6 +1,6 @@
-title: "standard_react_fastapi_environment"
-description: "a full-stack development environment"
-baseurl: "/standard_react_fastapi_environment"
+title: "python_front"
+description: "A playground for Python"
+baseurl: "/python_front"
 url: "https://europanite.github.io"
 theme: minima
 markdown: kramdown
