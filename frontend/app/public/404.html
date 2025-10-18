@@ -1,0 +1,12 @@
+<!DOCTYPE html><html><head>
+  <meta charset="utf-8"><title>Redirecting...</title>
+  <script>
+    (function(){
+      var path = window.location.pathname.replace(/\/python_fit/, '');
+      var search = window.location.search || '';
+      var hash = window.location.hash || '';
+      var url = '/python_fit/?redirect=' + encodeURIComponent(path + search + hash);
+      window.location.replace(url);
+    })();
+  </script>
+</head><body>Redirecting...</body></html>
