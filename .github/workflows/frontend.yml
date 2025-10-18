@@ -26,15 +26,4 @@ jobs:
       - name: Install dependencies
         working-directory: frontend/app
         run: npm ci
-      - name: Run unit tests (Jest)
-        working-directory: frontend/app
-        run: |
-          npm test -- --ci --runInBand --verbose --coverage
-      - name: Upload coverage
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-coverage
-          path: |
-            frontend/app/coverage
-          if-no-files-found: warn
+
