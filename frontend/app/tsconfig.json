@@ -3,6 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "moduleResolution": "bundler",
+    "lib": ["esnext", "dom"],
+    "types": ["jest", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
       "pyodide": ["node_modules/pyodide/pyodide"]
