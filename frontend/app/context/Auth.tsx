@@ -7,7 +7,7 @@ type User = { email: string } | null;
 type AuthCtx = {
   user: User;
   token: string | null;
-  authHeader: () => Record<string, string>;
+  authHeader: () => Partial<Record<string, string>>;
 };
 
 const AuthContext = createContext<AuthCtx | null>(null);
@@ -18,7 +18,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<User>(null);
 
-  const authHeader = () => (token ? { Authorization: `Bearer ${token}` } : {});
+  const authHeader = () =>
+    token ? { Authorization: `Bearer ${token}` } : {};
 
   return (
     <AuthContext.Provider value={{ user, token, authHeader }}>
