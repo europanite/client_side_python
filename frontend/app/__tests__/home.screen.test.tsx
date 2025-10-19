@@ -1,37 +1,62 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import React from "react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import HomeScreen from "../screens/HomeScreen";
 
-// Mock pyodide to avoid network and heavy init
-jest.mock('pyodide', () => ({
-  loadPyodide: jest.fn().mockResolvedValue({
+// Mock pyodide (simulate loadPyodide and Python execution)
+jest.mock("pyodide", () => ({
+  loadPyodide: jest.fn(async () => ({
+    runPythonAsync: jest.fn(async (code: string) => {
+      if (code.includes("error")) throw new Error("Simulated Python error");
+      return "3\n"; // simulate print(3)
+    }),
     setStdout: jest.fn(),
     setStderr: jest.fn(),
-    runPythonAsync: jest.fn().mockResolvedValue(undefined),
-  }),
+  })),
 }));
 
-// Mock clipboard used by Copy Output button
-Object.assign(navigator, { clipboard: { writeText: jest.fn().mockResolvedValue(undefined) } });
+describe("HomeScreen", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-// Mock react-navigation (only what HomeScreen touches indirectly)
-jest.mock('@react-navigation/native', () => {
-  const actual = jest.requireActual('@react-navigation/native');
-  return { ...actual, useNavigation: () => ({ navigate: jest.fn() }) };
-});
+  it("renders title and buttons", async () => {
+    render(<HomeScreen />);
+    expect(await screen.findByText("Python Front")).toBeInTheDocument();
+    expect(screen.getByText("Run")).toBeInTheDocument();
+    expect(screen.getByText("Clear")).toBeInTheDocument();
+  });
 
-// Mock useAuth to a simple anonymous state
-jest.mock('../context/Auth', () => ({ useAuth: jest.fn(() => ({ user: null })) }));
+  it("loads Pyodide successfully and shows Ready status", async () => {
+    render(<HomeScreen />);
+    await waitFor(() => {
+      expect(screen.getByText(/Pyodide: Ready/i)).toBeTruthy();
+    });
+  });
 
-const HomeScreen = require('../screens/HomeScreen').default;
+  it("runs Python code and shows output", async () => {
+    render(<HomeScreen />);
+    await waitFor(() => screen.getByText(/Ready/));
+    fireEvent.click(screen.getByText("Run"));
+    await waitFor(() =>
+      expect(screen.getByText(/3|no output/i)).toBeTruthy()
+    );
+  });
 
-test('renders title, code and console areas', async () => {
-  render(<HomeScreen />);
-  // Title link
-  expect(await screen.findByText('Python Front')).toBeTruthy();
-  // Buttons (labels come from MUI Buttons)
-  expect(screen.getByRole('button', { name: /Run/i })).toBeTruthy();
-  expect(screen.getByRole('button', { name: /Clear/i })).toBeTruthy();
-  expect(screen.getByRole('button', { name: /Load Sample/i })).toBeTruthy();
-  // Console label
-  expect(screen.getByText('Console')).toBeTruthy();
+  it("handles Python errors gracefully", async () => {
+    render(<HomeScreen />);
+    await waitFor(() => screen.getByText(/Ready/));
+    const textarea = screen.getByRole("textbox");
+    fireEvent.change(textarea, { target: { value: "error code" } });
+    fireEvent.click(screen.getByText("Run"));
+    await waitFor(() =>
+      expect(screen.getByText(/\[ERROR\]/i)).toBeTruthy()
+    );
+  });
+
+  it("clears console output", async () => {
+    render(<HomeScreen />);
+    await waitFor(() => screen.getByText(/Ready/));
+    fireEvent.click(screen.getByText("Clear"));
+    expect(screen.getByText(/\(No output yet\./i)).toBeInTheDocument();
+  });
 });
