@@ -2,8 +2,10 @@
 
 !["web_ui"](./assets/images/web_ui.png)
 
-**Demo** 
+##  Demo
  [Python Front](https://europanite.github.io/python_front/))  
+
+A browser based Python playground. 
 
 ---
 
