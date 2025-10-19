@@ -1,5 +1,8 @@
 # [Python Front](https://github.com/europanite/python_front "Python Front")
 
+[![CI](https://github.com/europanite/python_front/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/python_front/actions/workflows/ci.yml)
+[![Deploy Expo Web to GitHub Pages](https://github.com/europanite/python_front/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/europanite/python_front/actions/workflows/deploy-pages.yml)
+
 A browser based Python playground. 
 
 !["web_ui"](./assets/images/web_ui.png)
