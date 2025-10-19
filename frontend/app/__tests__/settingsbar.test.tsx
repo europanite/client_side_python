@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 
 // Mock useAuth
 jest.mock('../context/Auth', () => ({ useAuth: jest.fn() }));
@@ -14,3 +14,10 @@ jest.mock('@react-navigation/native', () => {
 
 beforeEach(() => { useAuth.mockReset(); mockNavigate.mockReset(); });
 
+test('SettingsBar renders without crashing', () => {
+  const SettingsBar = require('../components/SettingsBar').default;
+  useAuth.mockReturnValue({ user: null, token: null, authHeader: () => ({}) });
+  render(<SettingsBar />);
+  // No strict text to assert (bar is mostly layout), just verify render
+  expect(true).toBe(true);
+});

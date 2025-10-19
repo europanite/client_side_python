@@ -22,3 +22,11 @@ beforeEach(() => {
   exposed = null;
 });
 
+test('AuthProvider provides default null user', () => {
+  function ShowUser() {
+    const { user } = useAuth();
+    return <Text testID="user">{user ? 'yes' : 'no'}</Text>;
+  }
+  render(<AuthProvider><ShowUser /></AuthProvider>);
+  expect(screen.getByTestId('user').props.children).toBe('no');
+});
