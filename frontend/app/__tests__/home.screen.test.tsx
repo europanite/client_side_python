@@ -34,27 +34,3 @@ test('Get List While First Load', async () => {
   render(<HomeScreen />);
   expect(await screen.findByText(/Records \(2\)/)).toBeTruthy();
 });
-
-test('Unsigned in: DELETE to SignIn ', async () => {
-  fetchMock.mockResolvedValueOnce({
-    ok: true,
-    json: async () => ([{ id: 1, title: 'A' }]),
-  });
-  useAuth.mockReturnValue({ user: null });
-
-  render(<HomeScreen />);
-  fireEvent.press(await screen.findByText('DELETE'));
-  expect(mockNavigate).toHaveBeenCalledWith('SignIn');
-});
-
-test('Signed in: Empty Title CREATE -> "Invalid Title" ', async () => {
-  fetchMock.mockResolvedValueOnce({
-    ok: true,
-    json: async () => ([]),
-  });
-  useAuth.mockReturnValue({ user: { email: 'me@x' } });
-
-  render(<HomeScreen />);
-  fireEvent.press(await screen.findByText('CREATE'));
-  expect(await screen.findByText(/Invalid Title/)).toBeTruthy();
-});

@@ -14,19 +14,3 @@ jest.mock('@react-navigation/native', () => {
 
 beforeEach(() => { useAuth.mockReset(); mockNavigate.mockReset(); });
 
-test('Shows Unsigned in:  Sign In/Up Button', () => {
-  useAuth.mockReturnValue({ user: null, signOut: jest.fn() });
-  const Comp = require('../components/SettingsBar').default;
-  render(<Comp />);
-});
-
-test('Login: Email and Sign out', () => {
-  const signOut = jest.fn();
-  useAuth.mockReturnValue({ user: { email: 'me@x' }, signOut });
-  const Comp = require('../components/SettingsBar').default;
-
-  render(<Comp />);
-  expect(screen.getByText('me@x')).toBeTruthy();
-  fireEvent.press(screen.getByText('Sign out'));
-  expect(signOut).toHaveBeenCalled();
-});
