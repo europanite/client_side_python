@@ -1,4 +1,4 @@
-name: Frontend Tests via Docker
+name: docker
 on:
   workflow_dispatch:
   pull_request:

@@ -1,4 +1,4 @@
-name: Deploy Expo Web to GitHub Pages
+name: GitHub Pages
 on:
   push:
     branches: [ "main" ]
