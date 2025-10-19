@@ -30,7 +30,6 @@ jobs:
       - name: Build (expo export -p web)
         working-directory: frontend/app
         run: npx expo export -p web
-        # dist/ 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
