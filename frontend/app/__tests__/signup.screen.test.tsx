@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react-native';
-import SignUpScreen from '../screens/SignUpScreen';
 
 const mockSignUp = jest.fn().mockResolvedValue(undefined);
 jest.mock('../context/Auth', () => ({ useAuth: () => ({ signUp: mockSignUp }) }));

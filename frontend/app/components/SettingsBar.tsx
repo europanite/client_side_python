@@ -9,11 +9,9 @@ const BAR_BG = "#000000ff";
 const CONTENT_MAX_W = 480; // ← same as forms
 
 export default function SettingsBar() {
-  const { user, signOut } = useAuth();
   const nav = useNavigation<any>();
   const { width } = useWindowDimensions();
   const isNarrow = width < 420; // stack buttons below on very small widths
-  const NOT_SIGNED_COLOR = BAR_BG; 
 
   const Btn = ({ title, onPress }: { title: string; onPress: () => void }) => (
     <TouchableOpacity
