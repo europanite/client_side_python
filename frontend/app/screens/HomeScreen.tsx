@@ -214,7 +214,7 @@ export default function HomeScreen() {
               textDecorationLine: "underline"
             }}
           >
-            Python Front
+            Browser Based Python
           </a>
         </h1>
         <Stack
