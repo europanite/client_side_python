@@ -23,7 +23,7 @@
       "edgeToEdgeEnabled": true
     },
     "experiments": {
-      "baseUrl": "/python_front"
+      "baseUrl": "/browser_based_python"
     },
     "web": {
       "favicon": "./assets/favicon.png",
