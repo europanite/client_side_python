@@ -209,7 +209,10 @@ export default function HomeScreen() {
             href="https://github.com/europanite/browser_based_python/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "inherit", textDecoration: "none" }}
+            style={{ 
+              color: "#1d4ed8",
+              textDecorationLine: "underline"
+            }}
           >
             Python Front
           </a>
