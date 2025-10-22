@@ -9,7 +9,7 @@ A browser based Python playground.
 !["web_ui"](./assets/images/web_ui.png)
 
 ##  Demo
- [Python Front](https://europanite.github.io/browser_based_python/)
+ [Browser Based Python](https://europanite.github.io/browser_based_python/)
 
 ---
 
