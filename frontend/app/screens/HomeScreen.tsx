@@ -206,7 +206,7 @@ export default function HomeScreen() {
       <div style={styles.toolbar}>
         <h1 style={styles.title as any}>
           <a
-            href="https://github.com/europanite/browser_based_python/"
+            href="https://github.com/europanite/client_side_python/"
             target="_blank"
             rel="noopener noreferrer"
             style={{ 
@@ -214,7 +214,7 @@ export default function HomeScreen() {
               textDecorationLine: "underline"
             }}
           >
-            Browser Based Python
+            Client Side Python
           </a>
         </h1>
         <Stack
