@@ -4,7 +4,7 @@
 [![Frontend Tests via Docker](https://github.com/europanite/browser_based_python/actions/workflows/docker.yml/badge.svg)](https://github.com/europanite/browser_based_python/actions/workflows/docker.yml)
 [![Deploy Expo Web to GitHub Pages](https://github.com/europanite/browser_based_python/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/europanite/browser_based_python/actions/workflows/deploy-pages.yml)
 
-A browser based Python playground. 
+A Client Side Browser Based Python Playground. 
 
 !["web_ui"](./assets/images/web_ui.png)
 
