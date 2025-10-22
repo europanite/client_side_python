@@ -1,6 +1,6 @@
-title: "python_front"
+title: "browser_based_python"
 description: "A playground for Python"
-baseurl: "/python_front"
+baseurl: "/browser_based_python"
 url: "https://europanite.github.io"
 theme: minima
 markdown: kramdown

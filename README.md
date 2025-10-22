@@ -1,15 +1,15 @@
-# [Python Front](https://github.com/europanite/python_front "Python Front")
+# [Browser Based Python](https://github.com/europanite/browser_based_python "Browser Based Python")
 
-[![CI](https://github.com/europanite/python_front/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/python_front/actions/workflows/ci.yml)
-[![Frontend Tests via Docker](https://github.com/europanite/python_front/actions/workflows/docker.yml/badge.svg)](https://github.com/europanite/python_front/actions/workflows/docker.yml)
-[![Deploy Expo Web to GitHub Pages](https://github.com/europanite/python_front/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/europanite/python_front/actions/workflows/deploy-pages.yml)
+[![CI](https://github.com/europanite/browser_based_python/actions/workflows/ci.yml/badge.svg)](https://github.com/europanite/browser_based_python/actions/workflows/ci.yml)
+[![Frontend Tests via Docker](https://github.com/europanite/browser_based_python/actions/workflows/docker.yml/badge.svg)](https://github.com/europanite/browser_based_python/actions/workflows/docker.yml)
+[![Deploy Expo Web to GitHub Pages](https://github.com/europanite/browser_based_python/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/europanite/browser_based_python/actions/workflows/deploy-pages.yml)
 
 A browser based Python playground. 
 
 !["web_ui"](./assets/images/web_ui.png)
 
 ##  Demo
- [Python Front](https://europanite.github.io/python_front/)
+ [Python Front](https://europanite.github.io/browser_based_python/)
 
 ---
 

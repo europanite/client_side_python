@@ -206,7 +206,7 @@ export default function HomeScreen() {
       <div style={styles.toolbar}>
         <h1 style={styles.title as any}>
           <a
-            href="https://github.com/europanite/python_front/"
+            href="https://github.com/europanite/browser_based_python/"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "inherit", textDecoration: "none" }}
