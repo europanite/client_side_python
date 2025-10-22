@@ -21,7 +21,7 @@ describe("HomeScreen", () => {
 
   it("renders title and buttons", async () => {
     render(<HomeScreen />);
-    expect(await screen.findByText("Browser Based Python")).toBeInTheDocument();
+    expect(await screen.findByText("Client Side Python")).toBeInTheDocument();
     expect(screen.getByText("Run")).toBeInTheDocument();
     expect(screen.getByText("Clear")).toBeInTheDocument();
   });

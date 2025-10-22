@@ -1,6 +1,6 @@
-title: "browser_based_python"
-description: "A playground for Python"
-baseurl: "/browser_based_python"
+title: "client_side_python"
+description: "A Client Side Browser Based Python Playground"
+baseurl: "/client_side_python"
 url: "https://europanite.github.io"
 theme: minima
 markdown: kramdown
