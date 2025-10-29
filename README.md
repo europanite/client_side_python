@@ -8,8 +8,17 @@ A Client Side Browser Based Python Playground.
 
 !["web_ui"](./assets/images/web_ui.png)
 
-##  Demo
+##  🚀 PlayGround
+
  [Client Side Python](https://europanite.github.io/client_side_python/)
+
+A lightweight, browser-based Python playground powered by Pyodide. No server is required. 
+
+---
+
+## 🧰 How It Works
+
+On first load, the app fetches Pyodide from CDN and exposes runPythonAsync to execute the code in the textbox. Output and errors are streamed to the in-page console. A soft “Stop” cancels by bumping an execution token. 
 
 ---
 
@@ -30,6 +39,12 @@ docker compose build
 # Run the container
 docker compose up
 ```
+
+### 3. Test:
+```bash
+docker compose -f docker-compose.test.yml up --build --exit-code-from frontend_test
+```
+
 ---
 
 # License
