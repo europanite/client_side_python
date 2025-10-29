@@ -4,12 +4,19 @@
 [![Frontend Tests via Docker](https://github.com/europanite/client_side_python/actions/workflows/docker.yml/badge.svg)](https://github.com/europanite/client_side_python/actions/workflows/docker.yml)
 [![Deploy Expo Web to GitHub Pages](https://github.com/europanite/client_side_python/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/europanite/client_side_python/actions/workflows/deploy-pages.yml)
 
-A Client Side Browser Based Python Playground. 
+A Client-Side Browser-Based Python Playground. 
 
 !["web_ui"](./assets/images/web_ui.png)
 
-##  Demo
+##  🚀 PlayGround
+
  [Client Side Python](https://europanite.github.io/client_side_python/)
+
+---
+
+## 🧰 How It Works
+
+On first load, the app fetches Pyodide from CDN and exposes runPythonAsync to execute the code in the textbox. Output and errors are streamed to the in-page console. A soft “Stop” cancels by bumping an execution token. 
 
 ---
 
@@ -30,6 +37,12 @@ docker compose build
 # Run the container
 docker compose up
 ```
+
+### 3. Test:
+```bash
+docker compose -f docker-compose.test.yml up --build --exit-code-from frontend_test
+```
+
 ---
 
 # License
