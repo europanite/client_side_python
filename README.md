@@ -4,15 +4,13 @@
 [![Frontend Tests via Docker](https://github.com/europanite/client_side_python/actions/workflows/docker.yml/badge.svg)](https://github.com/europanite/client_side_python/actions/workflows/docker.yml)
 [![Deploy Expo Web to GitHub Pages](https://github.com/europanite/client_side_python/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/europanite/client_side_python/actions/workflows/deploy-pages.yml)
 
-A Client Side Browser Based Python Playground. 
+A Client-Side Browser-Based Python Playground. 
 
 !["web_ui"](./assets/images/web_ui.png)
 
 ##  🚀 PlayGround
 
  [Client Side Python](https://europanite.github.io/client_side_python/)
-
-A lightweight, browser-based Python playground powered by Pyodide. No server is required. 
 
 ---
 
