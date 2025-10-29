@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, useWindowDimensions } from "react-native";
+import { View, useWindowDimensions } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
