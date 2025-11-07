@@ -40,10 +40,10 @@ docker compose up
 
 ### 3. Test:
 ```bash
-docker compose \ 
--f docker-compose.test.yml up \ 
---build --exit-code-from \ 
-frontend_test
+docker compose \
+-f docker-compose.test.yml up \
+--build --exit-code-from \
+frontend_test 
 ```
 
 ---
