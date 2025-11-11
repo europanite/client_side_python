@@ -200,13 +200,15 @@ export default function HomeScreen() {
     />
   );
 
+  const url = "https://github.com/europanite/client_side_python/";
+
   return (
     <div style={styles.root}>
       {/* Top toolbar: Title + Buttons + Status */}
       <div style={styles.toolbar}>
         <h1 style={styles.title as any}>
           <a
-            href="https://github.com/europanite/client_side_python/"
+            href={url}
             target="_blank"
             rel="noopener noreferrer"
             style={{ 
