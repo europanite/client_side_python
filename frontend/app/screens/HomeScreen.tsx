@@ -65,6 +65,13 @@ export default function HomeScreen() {
         flexWrap: "wrap" as const,
       },
       title: { fontSize: 22, fontWeight: 800, margin: 0 },
+      subtitle: {
+        margin: 0,
+        marginTop: 4,
+        fontSize: 14,
+        color: "#4b5563",
+        maxWidth: 520,
+      },
       codePaper: {
         flex: 1,
         display: "flex",
@@ -219,6 +226,9 @@ export default function HomeScreen() {
             Client Side Python
           </a>
         </h1>
+        <p style={styles.subtitle as any}>
+          Browser-based Python playground powered by Pyodide. Run and experiment with Python code directly in your web browser — no server or account required.
+        </p>
         <Stack
           direction={narrow ? "column" : "row"}
           spacing={1}
