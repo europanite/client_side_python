@@ -12,9 +12,61 @@ A Client-Side Browser-Based Python Playground.
 
 ---
 
-## 🧰 How It Works
+## Overview
 
-On first load, the app fetches Pyodide from CDN and exposes runPythonAsync to execute the code in the textbox. Output and errors are streamed to the in-page console. A soft “Stop” cancels by bumping an execution token. 
+Client Side Python is a **browser-based Python playground powered by Pyodide**.  
+All Python code runs **entirely inside your browser tab** (WebAssembly, no backend), so your code never leaves your machine.
+
+This makes it useful for:
+
+- Quickly trying out small Python snippets
+- Demonstrating Python basics in a classroom or workshop
+- Experimenting with simple numeric or scripting tasks in a safe sandbox
+- Showing how WebAssembly + Pyodide can bring “real” Python to the browser
+
+---
+
+## Features
+
+- **Fully client-side execution**  
+  - Uses [Pyodide](https://pyodide.org) to run CPython in WebAssembly.
+  - No server, no database, no authentication required by default.
+
+- **Simple code editor + console**  
+  - Text area for Python code.
+  - Console area that shows `stdout` and `stderr`.
+  - Buttons: **Run**, **Stop**, **Clear**, **Load Sample**, **Copy Output**.
+
+- **Soft “Stop” mechanism**  
+  - Execution is wrapped with a soft cancel token.
+  - When you press **Stop**, the current run is logically cancelled so that late results are ignored instead of breaking the UI.
+
+- **Responsive web UI**  
+  - Built with **Expo / React Native Web** and **Material UI** components.
+  - Layout adapts to different viewport sizes (desktop / tablet).
+
+- **Deterministic CI via Docker**  
+  - Jest tests run in a Docker container using `docker-compose.test.yml`.
+  - GitHub Actions workflows are provided for CI and Docker-based testing.
+
+- **Automatic deployment to GitHub Pages**  
+  - GitHub Actions workflow builds the Expo web bundle and publishes it to GitHub Pages for the `main` branch.
+
+---
+
+## How It Works
+
+On first load, the app:
+
+1. Fetches Pyodide from a CDN.
+2. Initializes the Pyodide runtime and exposes `runPythonAsync`.
+3. Attaches custom handlers for `stdout` and `stderr` so that Python output is streamed into the in-page console.
+4. Uses a simple execution token to implement a **soft Stop**:
+   - Each run increments an internal `execId`.
+   - If a run finishes with an outdated `execId`, its output is discarded.
+   - This prevents stale results from older runs from polluting the console.
+
+All of this happens **in the browser**, without any backend API calls.
 
 ---
 
