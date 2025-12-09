@@ -2,12 +2,6 @@
 .git
 .gitignore
 
-# Python cache
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-
 # Node
 node_modules/
 npm-debug.log*

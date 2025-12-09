@@ -1,24 +1,8 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.so
-*.egg
-*.egg-info/
-.eggs/
-*.log
-*.sqlite3
-db.sqlite3
-
 # Virtual env
 .venv/
 env/
 venv/
 ENV/
-
-# Jupyter
-.ipynb_checkpoints/
 
 # Node / React Native (Expo)
 node_modules/
@@ -48,11 +32,6 @@ desktop.ini
 
 # coverage reports (backend & frontend)
 coverage/
-backend/app/coverage/
-frontend/app/coverage/
 
 # Jest cache
 frontend/app/.jest-cache/
-
-make_md.py
-client_side_python_*
