@@ -64,13 +64,16 @@ export default function HomeScreen() {
         gap: 12,
         flexWrap: "wrap" as const,
       },
-      title: { fontSize: 22, fontWeight: 800, margin: 0 },
+      title: { 
+        fontSize: 22, 
+        fontWeight: 800, 
+        margin: 0 
+      },
       subtitle: {
         margin: 0,
         marginTop: 4,
         fontSize: 14,
         color: "#4b5563",
-        maxWidth: 520,
       },
       codePaper: {
         flex: 1,
