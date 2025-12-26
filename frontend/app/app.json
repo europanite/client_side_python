@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "app",
+    "name": "Client Side Python",
+    "description": "A Browser-based Python Runner playground powered by Pyodide. Try Python code in your web browser. No server, No account, or No payment is required.",
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",

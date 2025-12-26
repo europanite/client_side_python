@@ -225,10 +225,10 @@ export default function HomeScreen() {
           >
             Client Side Python
           </a>
+          <p style={styles.subtitle as any}>
+            A Browser-based Python Runner playground powered by Pyodide. Try Python code in your web browser. No server, No account, or No payment is required.
+          </p>
         </h1>
-        <p style={styles.subtitle as any}>
-          Browser-based Python playground powered by Pyodide. Run and experiment with Python code directly in your web browser — no server or account required.
-        </p>
         <Stack
           direction={narrow ? "column" : "row"}
           spacing={1}

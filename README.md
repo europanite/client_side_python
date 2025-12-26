@@ -15,14 +15,14 @@
 
  [PlayGround](https://europanite.github.io/client_side_python/)
 
-A Client-Side Browser-Based Python Playground. 
+A Browser-based Python Runner playground powered by Pyodide. Try Python code in your web browser. No server, No account, or No payment is required.
 
 ---
 
 ## Overview
 
 Client Side Python is a **browser-based Python playground powered by Pyodide**.  
-All Python code runs **entirely inside your browser tab** (WebAssembly, no backend), so your code never leaves your machine.
+Python code runs **inside your browser tab** (WebAssembly, no backend).
 
 This makes it useful for:
 
@@ -37,27 +37,19 @@ This makes it useful for:
 
 - **Fully client-side execution**  
   - Uses [Pyodide](https://pyodide.org) to run CPython in WebAssembly.
-  - No server, no database, no authentication required by default.
+  - No server, No database, No authentication required by default.
 
 - **Simple code editor + console**  
   - Text area for Python code.
   - Console area that shows `stdout` and `stderr`.
   - Buttons: **Run**, **Stop**, **Clear**, **Load Sample**, **Copy Output**.
 
-- **Soft “Stop” mechanism**  
-  - Execution is wrapped with a soft cancel token.
-  - When you press **Stop**, the current run is logically cancelled so that late results are ignored instead of breaking the UI.
-
 - **Responsive web UI**  
-  - Built with **Expo / React Native Web** and **Material UI** components.
+  - Built with **Expo / React Native Web**.
   - Layout adapts to different viewport sizes (desktop / tablet).
 
 - **Deterministic CI via Docker**  
-  - Jest tests run in a Docker container using `docker-compose.test.yml`.
-  - GitHub Actions workflows are provided for CI and Docker-based testing.
-
-- **Automatic deployment to GitHub Pages**  
-  - GitHub Actions workflow builds the Expo web bundle and publishes it to GitHub Pages for the `main` branch.
+  - Jest tests run in a Docker container.
 
 ---
 
