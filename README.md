@@ -11,6 +11,19 @@
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
 
+At the top of every file, include this language selector:
+
+<p align="right">
+  <a href="./README.md">🇺🇸 English</a> |
+  <a href="./README.ja.md">🇯🇵 日本語</a> |
+  <a href="./README.zh-CN.md">🇨🇳 简体中文</a> |
+  <a href="./README.es.md">🇪🇸 Español</a> |
+  <a href="./README.pt-BR.md">🇧🇷 Português (Brasil)</a> |
+  <a href="./README.ko.md">🇰🇷 한국어</a> |
+  <a href="./README.de.md">🇩🇪 Deutsch</a> |
+  <a href="./README.fr.md">🇫🇷 Français</a>
+</p>
+
 !["web_ui"](./assets/images/web_ui.png)
 
  [PlayGround](https://europanite.github.io/client_side_python/)
