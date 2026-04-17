@@ -22,10 +22,6 @@
   <a href="./README.fr.md">🇫🇷 Français</a>
 </p>
 
-
-> **Note**
-> This is a translated version of this README. The English version (`README.md`) is the source of truth.
-
 !["web_ui"](./assets/images/web_ui.png)
 
  [PlayGround](https://europanite.github.io/client_side_python/)
