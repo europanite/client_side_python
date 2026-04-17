@@ -11,8 +11,6 @@
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
 
-At the top of every file, include this language selector:
-
 <p align="right">
   <a href="./README.md">🇺🇸 English</a> |
   <a href="./README.ja.md">🇯🇵 日本語</a> |
