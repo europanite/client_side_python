@@ -22,9 +22,9 @@ jobs:
       EXPO_PUBLIC_API_BASE: http://localhost:8000
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node }}
           cache: npm
@@ -43,7 +43,7 @@ jobs:
         run: npm test -- --ci --runInBand --coverage --verbose
       - name: Upload coverage
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: coverage-node${{ matrix.node }}
           path: frontend/app/coverage
@@ -56,9 +56,9 @@ jobs:
       CI: "1"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Use Node 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -71,7 +71,7 @@ jobs:
         run: npx expo export -p web
       - name: Upload dist (preview artifact)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: expo-web-dist
           path: frontend/app/dist
