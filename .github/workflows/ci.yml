@@ -34,8 +34,7 @@ jobs:
         if: hashFiles('frontend/app/tsconfig.json') != ''
         working-directory: frontend/app
         run: |
-          npx --yes typescript@latest -v >/dev/null 2>&1 || true
-          npx tsc --noEmit || (echo "::warning::Type check failed"; exit 1)
+          npm exec --yes --package typescript -- tsc --noEmit || (echo "::warning::Type check failed"; exit 1)
       - name: Run Jest with coverage (CI mode)
         working-directory: frontend/app
         run: npm test -- --ci --runInBand --coverage --verbose
