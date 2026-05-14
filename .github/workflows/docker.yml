@@ -3,6 +3,8 @@ on:
   push:
   workflow_dispatch:
   pull_request:
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 jobs:
   docker-tests:
     runs-on: ubuntu-latest
@@ -19,10 +21,3 @@ jobs:
       - name: Run tests via docker-compose (deterministic CI)
         run: |
           docker compose -f docker-compose.test.yml up --build --exit-code-from frontend_test
-      - name: Upload test reports (if mounted)
-        if: always()
-        uses: actions/upload-artifact@v5
-        with:
-          name: frontend-reports
-          path: reports/frontend
-          if-no-files-found: warn

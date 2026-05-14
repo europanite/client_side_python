@@ -12,6 +12,8 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 jobs:
   build:
     if: github.ref == 'refs/heads/main'
@@ -19,10 +21,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Use Node.js 20
+      - name: Use Node.js 24
         uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
           cache-dependency-path: |
             frontend/app/package-lock.json
@@ -31,7 +33,12 @@ jobs:
         run: npm ci
       - name: Build (expo export -p web)
         working-directory: frontend/app
-        run: npx expo export -p web
+        run: npx expo export -p web --output-dir dist
+      - name: Verify dist output
+        working-directory: frontend/app
+        run: |
+          test -d dist
+          test -f dist/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

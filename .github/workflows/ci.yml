@@ -7,14 +7,12 @@ concurrency:
   cancel-in-progress: true
 permissions:
   contents: read
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 jobs:
   test:
-    name: Jest on Node ${{ matrix.node }}
+    name: Jest on Node 24
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [18, 20, 22, 24]
     env:
       CI: "1"
       EXPO_TUNNEL: "false"
@@ -23,10 +21,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-      - name: Use Node ${{ matrix.node }}
+      - name: Use Node 24
         uses: actions/setup-node@v5
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 24
           cache: npm
           cache-dependency-path: frontend/app/package-lock.json
       - name: Install deps
@@ -41,13 +39,6 @@ jobs:
       - name: Run Jest with coverage (CI mode)
         working-directory: frontend/app
         run: npm test -- --ci --runInBand --coverage --verbose
-      - name: Upload coverage
-        if: always()
-        uses: actions/upload-artifact@v5
-        with:
-          name: coverage-node${{ matrix.node }}
-          path: frontend/app/coverage
-          if-no-files-found: warn
   web-export-smoke:
     name: Expo web export (smoke)
     needs: test
@@ -68,11 +59,9 @@ jobs:
         run: npm ci
       - name: Build (expo export -p web)
         working-directory: frontend/app
-        run: npx expo export -p web
-      - name: Upload dist (preview artifact)
-        if: always()
-        uses: actions/upload-artifact@v5
-        with:
-          name: expo-web-dist
-          path: frontend/app/dist
-          if-no-files-found: error
+        run: npx expo export -p web --output-dir dist
+      - name: Verify dist output
+        working-directory: frontend/app
+        run: |
+          test -d dist
+          test -f dist/index.html
