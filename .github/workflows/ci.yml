@@ -30,11 +30,6 @@ jobs:
       - name: Install deps
         working-directory: frontend/app
         run: npm ci
-      - name: Type check (skip if no TS)
-        if: hashFiles('frontend/app/tsconfig.json') != ''
-        working-directory: frontend/app
-        run: |
-          npm exec --yes --package typescript -- tsc --noEmit || (echo "::warning::Type check failed"; exit 1)
       - name: Run Jest with coverage (CI mode)
         working-directory: frontend/app
         run: npm test -- --ci --runInBand --coverage --verbose

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://europanite.github.io/client_side_python/sitemap.xml
